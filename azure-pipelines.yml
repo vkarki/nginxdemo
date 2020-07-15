@@ -11,20 +11,30 @@ steps:
 - script: echo Deploy NGINX
   displayName: 'Run a one-line script'
 
-- task: TerraformCLI@0
-  inputs:
-    command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
-    backendType: 'azurerm'
-    backendServiceArm: 'AzuretoAzureDevOps'
-    backendAzureRmResourceGroupName: 'terraformbackend'
-    backendAzureRmStorageAccountName: 'azurebackendterrstracc'
-    backendAzureRmContainerName: 'backendcontainer'
-    backendAzureRmKey: 'nginxdev.tfstate'
+- bash: |
+    pwd
+    echo "current dir"
+    cd ../
+    echo "one step up"
+    pwd
+    cd ../
+    echo "two step up"
+  
 
-- task: TerraformCLI@0
-  inputs:
-    command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
-    environmentServiceName: 'AzuretoAzureDevOps'
-    commandOptions: '-var-file ../globalvars.tfvars'
+# - task: TerraformCLI@0
+#   inputs:
+#     command: 'init'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
+#     backendType: 'azurerm'
+#     backendServiceArm: 'AzuretoAzureDevOps'
+#     backendAzureRmResourceGroupName: 'terraformbackend'
+#     backendAzureRmStorageAccountName: 'azurebackendterrstracc'
+#     backendAzureRmContainerName: 'backendcontainer'
+#     backendAzureRmKey: 'nginxdev.tfstate'
+
+# - task: TerraformCLI@0
+#   inputs:
+#     command: 'plan'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
+#     environmentServiceName: 'AzuretoAzureDevOps'
+#     commandOptions: '-var-file ../globalvars.tfvars'
