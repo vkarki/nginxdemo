@@ -1,0 +1,58 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+- group: TerraformSPN
+
+steps:
+- script: echo Deploy NGINX
+  displayName: 'Run a one-line script'
+
+# - bash: |
+#     echo "current dir"
+#     pwd
+#     echo "current folders"
+#     ls
+
+#     echo "one step up"
+#     cd ../
+#     pwd
+#     echo "one step up folders"
+#     ls
+
+#     echo "two step up"
+#     cd ../
+#     pwd
+#     echo "two step up folders"
+#     ls
+
+- bash: |
+    echo "Creating Sym links"
+    ln -s ../../infra/network/subnet subnet
+    ln -s ../../infra/network/publicIP publicIP
+    ln -s ../../infra/network/networkinterface networkinterface
+    ln -s ../../infra/network/networksecuritygroup/nsggroup nsggroup
+    ln -s ../../infra/storage/managedDisk managedDisk
+    ln -s ../../infra/compute/virtualMachine virtualMachine
+    ln -s ../../infra/storage/dataDiskAttachment dataDiskAttachment
+    
+# - task: TerraformCLI@0
+#   inputs:
+#     command: 'init'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
+#     backendType: 'azurerm'
+#     backendServiceArm: 'AzuretoAzureDevOps'
+#     backendAzureRmResourceGroupName: 'terraformbackend'
+#     backendAzureRmStorageAccountName: 'azurebackendterrstracc'
+#     backendAzureRmContainerName: 'backendcontainer'
+#     backendAzureRmKey: 'nginxdev.tfstate'
+
+# - task: TerraformCLI@0
+#   inputs:
+#     command: 'plan'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
+#     environmentServiceName: 'AzuretoAzureDevOps'
+#     commandOptions: '-var-file ../globalvars.tfvars'
