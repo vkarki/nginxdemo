@@ -11,6 +11,11 @@ steps:
 - script: echo Deploy NGINX
   displayName: 'Starting Job'
 
+- task: TerraformInstaller@0
+  displayName: Terraform Install
+  inputs:
+    terraformVersion: 'latest'
+
 - task: TerraformCLI@0
   displayName: Terraform Initialization
   inputs:
