@@ -12,14 +12,22 @@ steps:
   displayName: 'Run a one-line script'
 
 - bash: |
-    pwd
     echo "current dir"
-    cd ../
-    echo "one step up"
     pwd
+    echo "current folders"
+    ls
+
+    echo "one step up"
     cd ../
+    pwd
+    echo "one step up folders"
+    ls
+
     echo "two step up"
-  
+    cd ../
+    pwd
+    echo "two step up folders"
+    ls
 
 # - task: TerraformCLI@0
 #   inputs:
