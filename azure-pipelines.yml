@@ -12,7 +12,6 @@ steps:
   displayName: 'Starting Job'
 
 - task: TerraformInstaller@0
-  displayName: Terraform Install
   inputs:
     terraformVersion: 'latest'
 
