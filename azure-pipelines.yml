@@ -13,7 +13,7 @@ steps:
 
 - task: TerraformInstaller@0
   inputs:
-    terraformVersion: 'latest'
+    terraformVersion: 'v0.12.18'
 
 - task: TerraformCLI@0
   displayName: Terraform Initialization
