@@ -30,7 +30,7 @@ locals {
 
 #Calling Modules to create Nginx VM
 module "azuresubnet" {
-  source                = "./subnet"
+  source                = "../../infra/network/subnet"
   subnetName            = local.subnetName
   azurerg               = local.azurerg
   azurevnet             = local.azurevnet
@@ -38,14 +38,14 @@ module "azuresubnet" {
 }
 
 module "azurepip" {
-  source   = "./publicIP"
+  source   = "../../infra/network/publicIP"
   pipName  = local.pipName
   azurerg  = local.azurerg
   location = data.azurerm_resource_group.azurerg.location
 }
 
 module "azurenetworkinterface" {
-  source    = "./networkinterface"
+  source    = "../../infra/network/networkinterface"
   location  = data.azurerm_resource_group.azurerg.location
   subnet_id = module.azuresubnet.subnet_id
   pip_id    = module.azurepip.azurepip
@@ -55,14 +55,14 @@ module "azurenetworkinterface" {
 }
 
 module "azurensg" {
-  source   = "./nsggroup"
+  source   = "../../infra/network/networksecuritygroup/nsggroup"
   location = data.azurerm_resource_group.azurerg.location
   azurerg  = local.azurerg
   nsgName  = local.nsgName
 }
 
 module "azuremanageddisk" {
-  source               = "./managedDisk"
+  source               = "../../infra/storage/managedDisk"
   location             = data.azurerm_resource_group.azurerg.location
   storage_account_type = var.storage_account_type
   disk_size_gb         = var.disk_size_gb
@@ -71,7 +71,7 @@ module "azuremanageddisk" {
 }
 
 module "azurevirtualmachine" {
-  source               = "./virtualMachine"
+  source               = "../../infra/compute/virtualMachine"
   resource_prefix      = var.resource_prefix
   location             = data.azurerm_resource_group.azurerg.location
   vmName               = local.vmName
@@ -83,7 +83,7 @@ module "azurevirtualmachine" {
 }
 
 module "azuredatadiskattachment" {
-  source             = "./dataDiskAttachment"
+  source             = "../../infra/storage/dataDiskAttachment"
   managed_disk_id    = module.azuremanageddisk.datadiskid
   virtual_machine_id = module.azurevirtualmachine.virtualmachineid
 }
