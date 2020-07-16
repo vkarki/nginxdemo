@@ -16,7 +16,6 @@
 #     storage_account_name = "azurebackendterrstracc"
 #     container_name       = "backendcontainer"
 #     key                  = "nginx-dev.tfstate"
-#     access_key           = "5JzTs5j9miyFNxYQyemLJXr1PkOP+PYH+dZjFItbBGGiNPZomssQ0ZC+l0/PF0Q0dRLwtmrGemsiSXpNQTCrUA=="
 #   }
 # }
 
@@ -37,6 +36,5 @@ terraform {
     storage_account_name = "azurebackendterrstracc"
     container_name       = "backendcontainer"
     key                  = "nginx.tfstate"
-    #access_key           = "5JzTs5j9miyFNxYQyemLJXr1PkOP+PYH+dZjFItbBGGiNPZomssQ0ZC+l0/PF0Q0dRLwtmrGemsiSXpNQTCrUA=="
   }
 }
