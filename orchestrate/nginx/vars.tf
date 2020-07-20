@@ -6,8 +6,6 @@ variable "resource_prefix" {}
 
 variable "location" {}
 
-variable "address_space" {}
-
 variable "subnet_address_prefix" {}
 
 variable "storage_account_type" {}
