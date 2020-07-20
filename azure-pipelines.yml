@@ -33,6 +33,7 @@ steps:
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
     environmentServiceName: 'AzuretoAzureDevOps'
+    commandOptions: 'commandOptions: ''-var-file ../globalvars.tfvars'''
 
 - task: TerraformCLI@0
   displayName: Terraform Apply
