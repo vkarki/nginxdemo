@@ -16,6 +16,7 @@ steps:
   displayName: Terraform Initialization
   inputs:
     command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
     backendType: 'azurerm'
     backendServiceArm: 'AzuretoAzureDevOps'
     backendAzureRmResourceGroupName: 'terraformbackend'
