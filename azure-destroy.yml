@@ -1,0 +1,32 @@
+pool:
+  vmImage: 'vs2017-win2016'
+
+variables:
+- group: TerraformSPN
+
+steps:
+- script: echo Destroy NGINX
+  displayName: 'Starting Job'
+
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
+  inputs:
+    terraformVersion: 'v0.12.18'
+
+- task: TerraformCLI@0
+  displayName: Terraform Initialization
+  inputs:
+    command: 'init'
+    backendType: 'azurerm'
+    backendServiceArm: 'AzuretoAzureDevOps'
+    backendAzureRmResourceGroupName: 'terraformbackend'
+    backendAzureRmStorageAccountName: 'azurebackendterrstracc'
+    backendAzureRmContainerName: 'backendcontainer'
+    backendAzureRmKey: 'nginxdev.tfstate'
+
+- task: TerraformCLI@0
+  displayName: Terraform Destroy
+  inputs:
+    command: 'destroy'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
+    environmentServiceName: 'AzuretoAzureDevOps'
+    commandOptions: '-var-file ../globalvars.tfvars'
