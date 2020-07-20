@@ -1,5 +1,3 @@
-service_principal_client_id = "6e5dbbc4-dedc-4983-a3b3-ee109058260a"
-service_principal_client_secret = "93f59dfc-f155-48b1-93aa-764614e13bdb"
 resource_prefix = "euwdevopshpe"
 location = "west europe"
 address_space = ["10.0.0.0/24"]
