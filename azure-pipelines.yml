@@ -19,7 +19,7 @@ steps:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
     backendType: 'azurerm'
-    backendServiceArm: 'AzuretoAzureDevOps'
+    backendServiceArm: 'AzureConnection'
     backendAzureRmResourceGroupName: 'terraformbackend'
     backendAzureRmStorageAccountName: 'azurebackendterrstracc'
     backendAzureRmContainerName: 'backendcontainer'
@@ -30,7 +30,7 @@ steps:
   inputs:
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
-    environmentServiceName: 'AzuretoAzureDevOps'
+    environmentServiceName: 'AzureConnection'
     commandOptions: '-var-file ../globalvars.tfvars'
 
 - task: TerraformCLI@0
@@ -38,5 +38,5 @@ steps:
   inputs:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
-    environmentServiceName: 'AzuretoAzureDevOps'
+    environmentServiceName: 'AzureConnection'
     commandOptions: '-var-file ../globalvars.tfvars'
