@@ -1,28 +1,5 @@
-# provider "azurerm" {
-#   subscription_id = "ebca5828-a112-484e-8180-d4a3720de5d0"
-#   client_id       = var.service_principal_client_id
-#   client_secret   = var.service_principal_client_secret
-#   tenant_id       = "62703be7-f569-4700-ac06-129452b7d68e"
-#   version         = "=2.0.0"
-#   features {}
-# }
-
-# terraform {
-#   required_version = ">= 0.12.0"
-#   backend "azurerm" {
-#     subscription_id      = "ebca5828-a112-484e-8180-d4a3720de5d0"
-#     tenant_id            = "62703be7-f569-4700-ac06-129452b7d68e"
-#     resource_group_name  = "terraformbackend"
-#     storage_account_name = "azurebackendterrstracc"
-#     container_name       = "backendcontainer"
-#     key                  = "nginx-dev.tfstate"
-#   }
-# }
-
-
 provider "azurerm" {
-  subscription_id = "ebca5828-a112-484e-8180-d4a3720de5d0"
-  tenant_id       = "62703be7-f569-4700-ac06-129452b7d68e"
+  tenant_id       = "105b2061-b669-4b31-92ac-24d304d195dc"
   version         = "=2.0.0"
   features {}
 }
@@ -30,11 +7,5 @@ provider "azurerm" {
 terraform {
   required_version = ">= 0.12.0"
   backend "azurerm" {
-    subscription_id      = "ebca5828-a112-484e-8180-d4a3720de5d0"
-    tenant_id            = "62703be7-f569-4700-ac06-129452b7d68e"
-    resource_group_name  = "terraformbackend"
-    storage_account_name = "azurebackendterrstracc"
-    container_name       = "backendcontainer"
-    key                  = "nginx.tfstate"
   }
 }
