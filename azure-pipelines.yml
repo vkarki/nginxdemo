@@ -15,7 +15,7 @@ steps:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
     backendType: 'azurerm'
-    backendServiceArm: 'AzureConnection'
+    backendServiceArm: 'FreeTrialSubConnection'
     backendAzureRmResourceGroupName: 'terraformbackend'
     backendAzureRmStorageAccountName: 'terraform0tfstate10'
     backendAzureRmContainerName: 'tfstate'
@@ -26,7 +26,7 @@ steps:
   inputs:
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
-    environmentServiceName: 'AzureConnection'
+    environmentServiceName: 'FreeTrialSubConnection'
     commandOptions: '-var-file ../globalvars.tfvars'
 
 - task: TerraformCLI@0
@@ -34,5 +34,5 @@ steps:
   inputs:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
-    environmentServiceName: 'AzureConnection'
+    environmentServiceName: 'FreeTrialSubConnection'
     commandOptions: '-var-file ../globalvars.tfvars'
