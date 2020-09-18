@@ -16,7 +16,7 @@ steps:
     workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
     backendType: 'azurerm'
     backendServiceArm: 'FreeTrialSubConnection'
-    backendAzureRmResourceGroupName: 'terraformbackend'
+    backendAzureRmResourceGroupName: 'resourcegroup-tfstate'
     backendAzureRmStorageAccountName: 'terraform0tfstate10'
     backendAzureRmContainerName: 'tfstate'
     backendAzureRmKey: 'nginxdev.tfstate'
