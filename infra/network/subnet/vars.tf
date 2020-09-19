@@ -1,5 +1,5 @@
 
-variable "subnet_address_prefix"{
+variable "subnetAddressPrefix"{
     description = "resourceprefix"
 }  
 

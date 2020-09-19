@@ -1,4 +1,4 @@
-variable "resource_prefix" {
+variable "azurergName" {
 }
 
 variable "location" {

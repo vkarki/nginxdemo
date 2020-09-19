@@ -9,7 +9,7 @@ resource "azurerm_linux_virtual_machine" "azurevm" {
   network_interface_ids = [var.nicID]
   os_disk {
     caching              = "ReadWrite"
-    storage_account_type = var.storage_account_type
+    storage_account_type = var.storageAccountType
   }
 
   source_image_reference {

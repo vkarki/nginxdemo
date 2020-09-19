@@ -1,6 +1,7 @@
+
 provider "azurerm" {
-  tenant_id       = "105b2061-b669-4b31-92ac-24d304d195dc"
-  version         = "=2.0.0"
+  tenant_id = "105b2061-b669-4b31-92ac-24d304d195dc"
+  version   = ">=2.21.0"
   features {}
 }
 

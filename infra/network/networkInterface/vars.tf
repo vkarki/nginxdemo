@@ -3,12 +3,12 @@ variable "location"{
     description = "resource group location to place the resource"
 }
 
-variable "subnet_id" {
+variable "subnetId" {
     type = string
     description = "subnet id"
 }
 
-variable "pip_id" {
+variable "pipId" {
     type = string
     description = "Public IP address ID"
 }

@@ -1,5 +1,5 @@
 
-variable "resource_prefix" {
+variable "resourcePrefix" {
     type = string
     description = "resource_prefix"
 }
@@ -23,7 +23,7 @@ variable "nicID"{
     description = "network interface ID"
 }
 
-variable "storage_account_type"{
+variable "storageAccountType"{
     type = string
     description = "storage account type"
 }

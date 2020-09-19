@@ -1,5 +1,5 @@
-variable "managed_disk_id" {
+variable "managedDiskId" {
 }
 
-variable "virtual_machine_id" {
+variable "virtualMachineId" {
 }

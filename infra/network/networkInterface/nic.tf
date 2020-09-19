@@ -5,8 +5,8 @@ resource "azurerm_network_interface" "azurenic" {
 
   ip_configuration {
     name                          = var.nicName
-    subnet_id                     = var.subnet_id
+    subnet_id                     = var.subnetId
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = var.pip_id
+    public_ip_address_id = var.pipId
   }
 }

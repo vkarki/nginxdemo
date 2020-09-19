@@ -3,12 +3,12 @@ variable "location" {
     description = "location for the resource to be placed"
 }
 
-variable "storage_account_type" {
+variable "storageAccountType" {
     type = string
     description = "Describe storage account type"
 }
 
-variable "disk_size_gb" {
+variable "diskSizeGb" {
     type = string
     description = "Size of managed disk"
 }
