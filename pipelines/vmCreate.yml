@@ -40,7 +40,7 @@ stages:
       displayName: 'Copy Files to artifact staging directory'
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
-        Contents: '*/orchestrate/**/nginxDev.tfplan'
+        Contents: '**/nginxDev.tfplan'
         TargetFolder: $(Build.ArtifactStagingDirectory)
 
     - task: PublishBuildArtifacts@1
