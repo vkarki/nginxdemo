@@ -25,6 +25,7 @@ stages:
       inputs:
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginxV2'
+        commandOptions: 'backend-config=./backend/nginxDev.tfvars'
         backendType: 'azurerm'
         backendServiceArm: 'Free Trial (b0199e68-059a-47f0-a685-74588c223168)'
         backendAzureRmResourceGroupName: 'terraformDemo-rg'
