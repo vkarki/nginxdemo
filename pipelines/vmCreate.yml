@@ -17,7 +17,7 @@ stages:
   
   - job: TerraformPlan
     displayName: Terraform Initialization and Plan
-    dependsOn: [Build]
+    dependsOn: [TerraformInstall]
     steps:
     - task: TerraformCLI@0
       displayName: Terraform Initialization
