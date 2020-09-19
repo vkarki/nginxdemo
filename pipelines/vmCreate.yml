@@ -21,15 +21,16 @@ stages:
         terraformVersion: 'v0.12.18'
 
     - task: TerraformCLI@0
-      displayName: Terraform Initialization
       inputs:
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginxV2'
         commandOptions: 'backend-config=./backend/nginxDev.tfvars'
         backendType: 'azurerm'
         backendServiceArm: 'Free Trial (b0199e68-059a-47f0-a685-74588c223168)'
+        ensureBackend: true
         backendAzureRmResourceGroupName: 'terraformDemo-rg'
-        backendAzureRmStorageAccountName: 'demotfbackend'
+        backendAzureRmResourceGroupLocation: 'terraformDemo-rg'
+        backendAzureRmStorageAccountName: 'demotfbackend1234567'
         backendAzureRmContainerName: 'tfstate'
         backendAzureRmKey: 'nginxdev.tfstate'
 
