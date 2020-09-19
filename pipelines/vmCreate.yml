@@ -21,7 +21,7 @@ stages:
       displayName: Terraform Initialization
       inputs:
         command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginxV2'
         backendType: 'azurerm'
         backendServiceArm: 'Free Trial (b0199e68-059a-47f0-a685-74588c223168)'
         backendAzureRmResourceGroupName: 'terraformDemo-rg'
@@ -33,7 +33,7 @@ stages:
       displayName: Terraform Plan
       inputs:
         command: 'plan'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginxV2'
         environmentServiceName: 'Free Trial (b0199e68-059a-47f0-a685-74588c223168)'
         commandOptions: '-var-file ./globalvars/nginxDev.tfvars -out=nginxDev.tfplan'
 
