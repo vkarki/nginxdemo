@@ -13,7 +13,7 @@ stages:
     steps:
     - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
       inputs:
-      terraformVersion: 'v0.12.18'
+        terraformVersion: 'v0.12.18'
   
   - job: TerraformPlan
     displayName: Terraform Initialization and Plan
