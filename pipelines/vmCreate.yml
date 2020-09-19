@@ -1,9 +1,6 @@
 
 trigger: none
 
-variables:
-- group: spn
-
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -24,13 +21,10 @@ stages:
       inputs:
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginxV2'
-        commandOptions: 'backend-config=./backend/nginxDev.tfvars'
         backendType: 'azurerm'
         backendServiceArm: 'serviceconnection'
-        ensureBackend: true
         backendAzureRmResourceGroupName: 'terraformDemo-rg'
-        backendAzureRmResourceGroupLocation: 'terraformDemo-rg'
-        backendAzureRmStorageAccountName: 'demotfbackend1234567'
+        backendAzureRmStorageAccountName: 'demotfbackend'
         backendAzureRmContainerName: 'tfstate'
         backendAzureRmKey: 'nginxdev.tfstate'
 
