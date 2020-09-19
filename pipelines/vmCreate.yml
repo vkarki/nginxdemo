@@ -1,6 +1,9 @@
 
 trigger: none
 
+variables:
+- group: spn
+
 pool:
   vmImage: 'ubuntu-latest'
 
