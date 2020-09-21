@@ -106,4 +106,4 @@ stages:
               command: 'apply'
               workingDirectory: '$(System.DefaultWorkingDirectory)\orchestrate\nginxV2'
               environmentServiceName: 'serviceconnection'
-              commandOptions: 'nginxDev.tfplan'
+              commandOptions: '$(Pipeline.Workspace)\orchestrate\nginxV2\nginxDev.tfplan'
