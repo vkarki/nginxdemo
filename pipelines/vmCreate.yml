@@ -1,6 +1,9 @@
 
 trigger: none
 
+pool:
+  vmImage: 'vs2017-win2016'
+
 stages:
 - stage: Build
   displayName: Build stage
@@ -8,8 +11,7 @@ stages:
   
   - job: TerraformPlan
     displayName: Terraform Initialization and Plan
-    pool:
-      vmImage: 'vs2017-win2016'
+
     steps:
     - task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
       inputs:
@@ -53,8 +55,6 @@ stages:
   condition: succeeded()
   jobs:
   - deployment: DeployVM
-    pool:
-      vmImage: 'vs2017-win2016'
     displayName: Deploy Nginx VM
     environment: Dev
     strategy:
