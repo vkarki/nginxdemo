@@ -91,4 +91,4 @@ stages:
               command: 'apply'
               workingDirectory: $(System.DefaultWorkingDirectory)
               environmentServiceName: 'serviceconnection'
-              commandOptions: '$(System.ArtifactsDirectory)/orchestrate/nginxV2/nginxDev.tfplan'
+              commandOptions: '$(System.ArtifactsDirectory)\drop\orchestrate\nginxV2\nginxDev.tfplan'
