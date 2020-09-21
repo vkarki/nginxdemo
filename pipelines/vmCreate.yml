@@ -71,7 +71,7 @@ stages:
               command: 'init'
               workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
               backendType: 'azurerm'
-              backendServiceArm: 'FreeTrialSubConnection'
+              backendServiceArm: 'serviceconnection'
               backendAzureRmResourceGroupName: 'resourcegroup-tfstate'
               backendAzureRmStorageAccountName: 'terraform0tfstate10'
               backendAzureRmContainerName: 'tfstate'
@@ -90,5 +90,5 @@ stages:
             inputs:
               command: 'apply'
               workingDirectory: $(System.DefaultWorkingDirectory)
-              environmentServiceName: 'FreeTrialSubConnection'
+              environmentServiceName: 'serviceconnection'
               commandOptions: '$(System.ArtifactsDirectory)/orchestrate/nginxV2/nginxDev.tfplan'
