@@ -80,8 +80,7 @@ stages:
           - task: DownloadBuildArtifacts@0
             inputs:
               buildType: 'current'
-              downloadType: 'single'
-              artifactName: 'drop'
+              downloadType: 'specific'
               itemPattern: '**/.*tfplan'
               downloadPath: '$(System.ArtifactsDirectory)'
           
