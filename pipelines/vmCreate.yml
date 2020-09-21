@@ -76,31 +76,20 @@ stages:
               backendAzureRmStorageAccountName: 'demotfbackend'
               backendAzureRmContainerName: 'tfstate'
               backendAzureRmKey: 'nginxdev.tfstate'
-
-          - task: DownloadPipelineArtifact@2
-            inputs:
-              buildType: 'current'
-              artifactName: 'drop'
-              itemPattern: '**/*.tfplan'
-              targetPath: '$(Pipeline.Workspace)'
           
-          - task: DownloadPipelineArtifact@2
+          - task: DownloadBuildArtifacts@0
             inputs:
               buildType: 'current'
+              downloadType: 'single'
               artifactName: 'drop'
-              itemPattern: '**\*.tfplan'
-              targetPath: '$(System.ArtifactsDirectory)'
+              itemPattern: '**/.*tfplan'
+              downloadPath: '$(System.ArtifactsDirectory)'
           
           - task: PowerShell@2
             inputs:
               targetType: 'inline'
               script: |
-                # Write your PowerShell commands here.
-                Get-ChildItem -path $(System.ArtifactsDirectory) -Recurse
-                write-host "$(Pipeline.Workspace)"
-                Get-ChildItem -path $(Pipeline.Workspace) -Recurse
-                Copy-Item -Path D:\a\1\drop\orchestrate\nginxV2\nginxDev.tfplan -Destination $(System.DefaultWorkingDirectory)\orchestrate\nginxV2\.
-                Get-ChildItem -path  $(System.DefaultWorkingDirectory)\orchestrate\nginxV2
+                Copy-Item -Path $(System.ArtifactsDirectory)\drop\orchestrate\nginxV2\nginxDev.tfplan -Destination $(System.DefaultWorkingDirectory)\orchestrate\nginxV2\.
           - task: TerraformCLI@0
             displayName: Terraform Apply
             inputs:
