@@ -69,7 +69,7 @@ stages:
             displayName: Terraform Initialization
             inputs:
               command: 'init'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginx'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/orchestrate/nginxV2'
               backendType: 'azurerm'
               backendServiceArm: 'serviceconnection'
               backendAzureRmResourceGroupName: 'resourcegroup-tfstate'
