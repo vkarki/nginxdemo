@@ -99,11 +99,12 @@ stages:
                 Get-ChildItem -path $(System.ArtifactsDirectory) -Recurse
                 write-host "$(Pipeline.Workspace)"
                 Get-ChildItem -path $(Pipeline.Workspace) -Recurse
-                
+                Copy-Item -Path D:\a\1\drop\orchestrate\nginxV2\nginxDev.tfplan -Destination $(System.DefaultWorkingDirectory)\orchestrate\nginxV2\.
+                Get-ChildItem -path  $(System.DefaultWorkingDirectory)\orchestrate\nginxV2
           - task: TerraformCLI@0
             displayName: Terraform Apply
             inputs:
               command: 'apply'
               workingDirectory: '$(System.DefaultWorkingDirectory)\orchestrate\nginxV2'
               environmentServiceName: 'serviceconnection'
-              commandOptions: '$(Pipeline.Workspace)\orchestrate\nginxV2\nginxDev.tfplan'
+              commandOptions: 'nginxDev.tfplan'
