@@ -9,7 +9,7 @@ stages:
   displayName: Destroy stage
   jobs:
   - deployment: DeployVM
-    displayName: Deploy Nginx VM
+    displayName: Destroy Nginx VM
     environment: Dev
     strategy:
       runOnce:
