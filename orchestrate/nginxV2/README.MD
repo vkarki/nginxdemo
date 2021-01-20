@@ -42,8 +42,13 @@ pipelines - This contains the ADO pipeline
 
 3) Create a file in the *globalvars* folder with the name of *ngnix.tfvars*.    
 
-          rg                    = "aeinfradev"  
-          automationAccount     = "aeInfraDev-AAE"  
+          resourcePrefix     = "terraformDemo"
+          location           = "West US"
+          storageAccountType = "Standard_LRS"
+          diskSizeGb         = 30
+          vmSize             = "Standard_DS1_v2"
+          vmUser             = "adminuser"
+          applicationName    = "nginxDev"
 
 4) Initialize Terraform on the working directory containing Terraform configuration files. 
 
